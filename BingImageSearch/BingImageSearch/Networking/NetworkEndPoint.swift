@@ -19,7 +19,7 @@ enum ApiEndPoints {
         return url
     }
     
-    //Returns EndPoint for Contact APIs
+    //Returns EndPoint for Images APIs
     var path: String {
         switch self {
         case .getImages(let searchString, let pageNumber):

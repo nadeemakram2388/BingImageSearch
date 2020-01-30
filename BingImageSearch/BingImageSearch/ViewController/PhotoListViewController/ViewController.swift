@@ -97,6 +97,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let safeViewModel = viewModel, safeViewModel.items.count > indexPath.item {
+            let cell = collectionView.cellForItem(at: indexPath) as! PhotoCollectionViewCell
+            let currentPhoto = safeViewModel.items[(indexPath as NSIndexPath).item]
+            let galleryPreview = PhotosViewController(photos: safeViewModel.items, initialPhoto: currentPhoto, referenceView: cell)
+            self.navigationController?.pushViewController(galleryPreview, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

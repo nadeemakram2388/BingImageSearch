@@ -10,13 +10,17 @@ import Foundation
 import Mantle
 
 @objc public protocol PhotoViewable: class {
-    var image: UIImage? { get }    
+    var image: UIImage? { get }
+    var thumbnailImage: UIImage? { get }
+
+    func loadThumbnailImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ())
     func loadImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ())
 }
 
 class Photo: MTLModel, MTLJSONSerializing, PhotoViewable {
 
     @objc open var image: UIImage?
+    @objc open var thumbnailImage: UIImage?
 
     @objc private(set) var thumbnailUrl: String?
     @objc private(set) var contentUrl: String?
@@ -33,6 +37,15 @@ class Photo: MTLModel, MTLJSONSerializing, PhotoViewable {
         }
         loadImageWithURL(contentUrl, completion: completion)
     }
+    
+    @objc open func loadThumbnailImageWithCompletionHandler(_ completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {
+        if let thumbnailImage = thumbnailImage {
+            completion(thumbnailImage, nil)
+            return
+        }
+        loadImageWithURL(thumbnailUrl, completion: completion)
+    }
+
     
     open func loadImageWithURL(_ url: String?, completion: @escaping (_ image: UIImage?, _ error: Error?) -> ()) {
         let session = URLSession(configuration: URLSessionConfiguration.default)

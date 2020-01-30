@@ -20,11 +20,10 @@ class NetworkManager {
     }()
     
     class func getUrl(apiEndPoint: ApiEndPoints) -> String {
-       // return AppConstants.Service.baseURL + apiEndPoint.path
         return apiEndPoint.path
     }
 
-    //MARK:- Post Request
+    //MARK:- GET Request
     
     func getRequest(_ endpoint: ApiEndPoints ,completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
         

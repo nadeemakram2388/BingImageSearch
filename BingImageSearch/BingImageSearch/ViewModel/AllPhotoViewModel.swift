@@ -11,7 +11,6 @@ import Mantle
 
 class AllPhotoViewModel {
     
-    //let apiService: APIServiceProtocol
     let httpClient: NetworkManager
     var pageNumber: Int = 0
     let loadMoreBeforeLastIndexDiff = 4

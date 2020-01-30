@@ -18,13 +18,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     func populateWithPhoto(_ photo: PhotoViewable) {
-        photo.loadImageWithCompletionHandler { [weak photo] (image, error) in
+        photo.loadThumbnailImageWithCompletionHandler { [weak photo] (image, error) in
             if let image = image {
                 if let photo = photo as? Photo {
-                    photo.image = image
+                    photo.thumbnailImage = image
                 }
                 self.imageView.image = image
             }
+
         }
     }
 }

@@ -16,57 +16,41 @@ class NetworkManager {
     }()
 
     var manager: AFHTTPSessionManager = {
-        return AFHTTPSessionManager()
+        return AFHTTPSessionManager(baseURL: URL(string: AppConstants.Service.baseURL))
     }()
     
-    class func getUrl(apiEndPoint: ApiEndPoints) -> String? {
-        return AppConstants.Service.baseURL + apiEndPoint.path
+    class func getUrl(apiEndPoint: ApiEndPoints) -> String {
+       // return AppConstants.Service.baseURL + apiEndPoint.path
+        return apiEndPoint.path
     }
-
-    
 
     //MARK:- Post Request
     
-    func getRequest(_ endpoint: ApiEndPoints, dataParam: NSMutableDictionary?, requestHeader: NSMutableDictionary? ,completionHandler: @escaping (NSDictionary?, NSError?) -> Void) {
+    func getRequest(_ endpoint: ApiEndPoints ,completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
         
-        if Connectivity.isConnectedToInternet() {
-            
             manager.requestSerializer = AFJSONRequestSerializer()
+            manager.requestSerializer.setValue(AppConstants.Service.apiKey, forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+
             manager.responseSerializer = AFJSONResponseSerializer()
-            manager.get(NetworkManager.getUrl(apiEndPoint: endpoint)!, parameters: nil, progress: { (progress) in
+            manager.responseSerializer.acceptableContentTypes = NSSet(array: ["application/json"]) as? Set<String>
+
+            manager.get(NetworkManager.getUrl(apiEndPoint: endpoint), parameters: nil, progress: { (progress) in
                 
             }, success: { (task, responseObject) in
-//                if let data = task.userInfo["data"] as? NSDictionary {
-//                    print(data)
-//                }
 
                 print("Success")
                 if let response = task.response as? HTTPURLResponse {
                     print(response.statusCode)
+                    
+                }
+                
+                if let data = responseObject as? [String: Any] {
+                    completionHandler(data, nil)
                 }
 
             }) { (task, error) in
                 print("Error")
+                completionHandler(nil, error)
             }
-        }
     }
 }
-
-//class JSONResponseSerializer: AFJSONResponseSerializer {
-//    override func responseObjectForResponse (response: URLResponse, data data: NSData, error error: AutoreleasingUnsafePointer) -> AnyObject
-//    {
-//        var json = super.responseObjectForResponse(response, data: data, error: error) as AnyObject
-//
-//        if error.memory? {
-//            var errorValue = error.memory!
-//            var userInfo = errorValue.userInfo as NSDictionary
-//            var copy = userInfo.mutableCopy() as NSMutableDictionary
-//
-//            copy["data"] = json
-//
-//            error.memory = NSError(domain: errorValue.domain, code: errorValue.code, userInfo: copy)
-//        }
-//
-//        return json
-//    }
-//}

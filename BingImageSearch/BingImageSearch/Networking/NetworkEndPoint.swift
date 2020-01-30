@@ -23,7 +23,7 @@ enum ApiEndPoints {
     var path: String {
         switch self {
         case .getImages(let searchString, let pageNumber):
-            return "/search?q=\(searchString)&count=50&offset=\(pageNumber)&mkt=en-us&safeSearch=Moderate"
+            return "/bing/v7.0/images/search?q=\(searchString)&count=50&offset=\(pageNumber)&mkt=en-us&safeSearch=Moderate"
         }
     }
 

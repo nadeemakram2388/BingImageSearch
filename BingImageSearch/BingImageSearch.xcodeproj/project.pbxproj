@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A8DAA6923E2B18D003B55C6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DAA6823E2B18D003B55C6 /* NetworkManager.swift */; };
+		2A8DAA6B23E2B20E003B55C6 /* NetworkEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DAA6A23E2B20E003B55C6 /* NetworkEndPoint.swift */; };
+		2A8DAA6F23E2B4FD003B55C6 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DAA6E23E2B4FD003B55C6 /* Connectivity.swift */; };
+		2A8DAA7223E2BAE2003B55C6 /* AppConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DAA7123E2BAE2003B55C6 /* AppConstant.swift */; };
 		2A9376A323E2A12300316835 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9376A223E2A12300316835 /* AppDelegate.swift */; };
 		2A9376A523E2A12300316835 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9376A423E2A12300316835 /* ViewController.swift */; };
 		2A9376A823E2A12300316835 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9376A623E2A12300316835 /* Main.storyboard */; };
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		0B0A7D4E4F3F22D8C202EB0B /* Pods-BingImageSearchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BingImageSearchUITests.release.xcconfig"; path = "Target Support Files/Pods-BingImageSearchUITests/Pods-BingImageSearchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2A8DAA6823E2B18D003B55C6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		2A8DAA6A23E2B20E003B55C6 /* NetworkEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndPoint.swift; sourceTree = "<group>"; };
+		2A8DAA6E23E2B4FD003B55C6 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		2A8DAA7123E2BAE2003B55C6 /* AppConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstant.swift; sourceTree = "<group>"; };
 		2A93769F23E2A12300316835 /* BingImageSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BingImageSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9376A223E2A12300316835 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9376A423E2A12300316835 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +107,97 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2A8DAA5D23E2B0F6003B55C6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2A8DAA5F23E2B10F003B55C6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2A8DAA6023E2B117003B55C6 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				2A8DAA7123E2BAE2003B55C6 /* AppConstant.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		2A8DAA6123E2B11C003B55C6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2A8DAA6223E2B123003B55C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2A8DAA6323E2B127003B55C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2A8DAA6423E2B12C003B55C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2A8DAA6623E2B141003B55C6 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				2A9376A223E2A12300316835 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		2A8DAA6723E2B180003B55C6 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2A8DAA6823E2B18D003B55C6 /* NetworkManager.swift */,
+				2A8DAA6A23E2B20E003B55C6 /* NetworkEndPoint.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		2A8DAA6C23E2B49E003B55C6 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2A8DAA7023E2B503003B55C6 /* Reachbility */,
+				2A8DAA6D23E2B4D6003B55C6 /* Connectivity */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2A8DAA6D23E2B4D6003B55C6 /* Connectivity */ = {
+			isa = PBXGroup;
+			children = (
+				2A8DAA6E23E2B4FD003B55C6 /* Connectivity.swift */,
+			);
+			path = Connectivity;
+			sourceTree = "<group>";
+		};
+		2A8DAA7023E2B503003B55C6 /* Reachbility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reachbility;
+			sourceTree = "<group>";
+		};
 		2A93769623E2A12200316835 = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +223,16 @@
 		2A9376A123E2A12300316835 /* BingImageSearch */ = {
 			isa = PBXGroup;
 			children = (
-				2A9376A223E2A12300316835 /* AppDelegate.swift */,
+				2A8DAA6C23E2B49E003B55C6 /* Utility */,
+				2A8DAA6723E2B180003B55C6 /* Networking */,
+				2A8DAA6623E2B141003B55C6 /* AppDelegate */,
+				2A8DAA6423E2B12C003B55C6 /* ViewModel */,
+				2A8DAA6323E2B127003B55C6 /* Model */,
+				2A8DAA6223E2B123003B55C6 /* View */,
+				2A8DAA6123E2B11C003B55C6 /* ViewController */,
+				2A8DAA6023E2B117003B55C6 /* Constant */,
+				2A8DAA5F23E2B10F003B55C6 /* Coordinator */,
+				2A8DAA5D23E2B0F6003B55C6 /* Extension */,
 				2A9376A423E2A12300316835 /* ViewController.swift */,
 				2A9376A623E2A12300316835 /* Main.storyboard */,
 				2A9376A923E2A12500316835 /* Assets.xcassets */,
@@ -162,7 +270,6 @@
 				4C35EEE355A2799F2D68DB1B /* Pods-BingImageSearchUITests.debug.xcconfig */,
 				0B0A7D4E4F3F22D8C202EB0B /* Pods-BingImageSearchUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -387,8 +494,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A8DAA6923E2B18D003B55C6 /* NetworkManager.swift in Sources */,
 				2A9376A523E2A12300316835 /* ViewController.swift in Sources */,
+				2A8DAA6F23E2B4FD003B55C6 /* Connectivity.swift in Sources */,
+				2A8DAA7223E2BAE2003B55C6 /* AppConstant.swift in Sources */,
 				2A9376A323E2A12300316835 /* AppDelegate.swift in Sources */,
+				2A8DAA6B23E2B20E003B55C6 /* NetworkEndPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
